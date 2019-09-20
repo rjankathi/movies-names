@@ -4,7 +4,12 @@ module.exports = {
     all: movies,
     random: uniqueRandomArray(movies),
     getMovieByName: function (title){
-        var movie =  movies.find((item) => { return item.title === title;});
-        return movie;
+        var movie =  movies.filter((item) => { return title.includes(item.title);});
+        if(movie.length == 0 || movie === undefined){
+            return `The Movie you're looking for is not found`;
+        } else{
+            return movie;
+        }
     },
 };
+
