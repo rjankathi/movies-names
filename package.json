@@ -1,15 +1,17 @@
 {
   "name": "movies-names",
-  "version": "1.1.0",
+  "version": "0.0.0-semantically-released",
   "description": "contains a list of 1900-2018 movies from Wikipedia in convenient form: an array of objects, each representing a movie, with a title string, year integer, a cast array and a genres array -- each representing the text content of those respective columns in the Wikipedia tables",
-  "ref":"https://github.com/prust/wikipedia-movie-data",
+  "ref": "https://github.com/prust/wikipedia-movie-data",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "commit":"git-cz",
+    "test": "mocha src/index.test.js -w",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rjankathi/movies-names.git"
+    "url": "https://github.com/rjankathi/movies-names.git"
   },
   "keywords": [
     "random",
@@ -24,5 +26,16 @@
   "homepage": "https://github.com/rjankathi/movies-names#readme",
   "dependencies": {
     "unique-random-array": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "commitizen": "^4.0.3",
+    "conventional-changelog": "^3.1.10",
+    "cz": "^1.8.2",
+    "mocha": "^6.2.0",
+    "semantic-release": "^15.13.24"
+  },
+  "czConfig":{
+    "path": "node_modules/cz-conventional-changelog"
   }
 }
