@@ -17,4 +17,4 @@ jobs:
         script:
           - npm run test:single
         after_success:
-          - npx semantic-release 
+          - npm run semantic-release 
