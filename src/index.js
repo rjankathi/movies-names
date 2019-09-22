@@ -11,7 +11,7 @@ module.exports = {
 function movieByName(title){
     var movie =  movies.filter((item) => { return title.includes(item.title);});
         if(movie.length == 0 || movie === undefined){
-            return `The Movie youre looking for is not found`;
+            return `The Movie you are looking for is not found`;
         } else{
             return movie;
         }
