@@ -2,17 +2,17 @@ sudo: false
 language: node_js
 
 node_js:
-  -10
+  - 10
+
+install:
+  - travis_retry npm install
 script:
   - npm run test:single
+
 jobs:
   include:
     # Define the release stage that runs semantic-release
     - stage: release
       node_js: lts/*
-      # Advanced: optionally overwrite your default `script` step to skip the tests
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script:
+      script:
           - npm run semantic-release 
