@@ -16,5 +16,4 @@ jobs:
         skip_cleanup: true
         script:
           - npm run test:single
-        after_success:
-          - npm run semantic-release 
+          - npm run semantic-release  
