@@ -1,4 +1,6 @@
-var expect = require('chai').expect;
+var chai = require('chai'),
+    expect = chai.expect;
+
 var movies = require('./index');
 
 describe('movies-names',function(){
@@ -54,6 +56,16 @@ describe('movies-names',function(){
             var movieNotInTheArray = movies.movieByName('Gandhi');
             console.log();
             expect(movies.movieByName('Gandhi')).to.not.equal({});
+        });
+
+        it('should return generes only',function(){
+            let genresArray = [];
+            movies.all.forEach(item => {
+                genresArray = genresArray.concat(item.genres).filter((item,i,arr)=>arr.indexOf(item) === i);
+            })            
+            //expect(genresArray).to.include('Superhero','Independent','Dance','Supernatural','Legal','Found Footage');
+            expect(genresArray).to.be.an('array').that.include('Superhero','Independent','Dance','Supernatural','Legal','Found Footage');
+            //expect(movies.all).to.deep.include( { title: "Kingsman: The Secret Service",year: 2015,cast: ["Samuel L. Jackson", "Colin Firth", "Taron Egerton", "Mark Strong"],genres: ["Action"]});
         });
     });
 

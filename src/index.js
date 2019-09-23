@@ -5,7 +5,8 @@ var getRandomItem = uniqueRandomArray(movies);
 module.exports = {
     all: movies,
     random: random,
-    movieByName: movieByName
+    movieByName: movieByName,
+    genres: genres
 };
 
 function movieByName(title){
@@ -27,4 +28,15 @@ function random(number){
         }
         return randomItems;
     }
+}
+
+function genres(){
+    let genresArray = [];
+    movies.forEach(item => {
+        genresArray = genresArray.concat(item.genres);
+        let uniqueGenres = genresArray.filter((item,index,array) => array.indexOf(item) === index);
+        genresArray = uniqueGenres;
+    });
+
+    return genresArray.sort();
 }
