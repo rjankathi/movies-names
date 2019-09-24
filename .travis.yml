@@ -6,8 +6,6 @@ node_js:
 
 install:
   - travis_retry npm install
-script:
-  - npm run test:single
 
 jobs:
   include:
@@ -15,4 +13,8 @@ jobs:
     - stage: release
       node_js: lts/*
       script:
+          - npm run test:single
+          - npm run check-coverage
+      after_success:
+          - npm run report-coverage 
           - npm run semantic-release 
