@@ -38,5 +38,5 @@ function genres(){
         genresArray = uniqueGenres;
     });
 
-    return genresArray.sort();
+    return genresArray;//.sort();
 }
